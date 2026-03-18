@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SnackBitesWebApp.Models
 {
@@ -11,5 +13,8 @@ namespace SnackBitesWebApp.Models
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; set; }
         public int OrderStatus { get; set; }
+        [ForeignKey("StaffID")]
+        public Staff Staff { get; set; }
+
     }
 }

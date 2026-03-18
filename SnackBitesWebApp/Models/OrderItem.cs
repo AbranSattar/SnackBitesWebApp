@@ -14,5 +14,6 @@ namespace SnackBitesWebApp.Models
 
         [ForeignKey("FoodID")]
         public Food Food { get; set; }
+        
     }
 }
