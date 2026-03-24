@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SnackBitesWebApp.Areas.Identity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,10 +15,6 @@ namespace SnackBitesWebApp.Models
         public int OrderStatus { get; set; }
         [ForeignKey("StaffID")]
         public Staff Staff { get; set; }
-        [ForeignKey("Id")]
-        public SnackBitesWebAppUser SnackBitesWebAppUser { get; set; }
-
-        public ICollection<OrderItem> Items { get; set; }
 
     }
 }

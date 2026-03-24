@@ -9,7 +9,5 @@
         public string? Category { get; set; }
         public bool Available { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; }
-
     }
 }
