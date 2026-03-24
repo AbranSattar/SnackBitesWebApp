@@ -23,4 +23,6 @@ public class SnackBitesWebAppContext : IdentityDbContext<SnackBitesWebAppUser>
     }
 
 public DbSet<SnackBitesWebApp.Models.Food> Food { get; set; } = default!;
+
+public DbSet<SnackBitesWebApp.Models.Staff> Staff { get; set; } = default!;
 }
