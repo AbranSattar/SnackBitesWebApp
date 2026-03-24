@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SnackBitesWebApp.Areas.Identity.Data;
+using SnackBitesWebApp.Models;
 
 namespace SnackBitesWebApp.Areas.Identity.Data;
 
@@ -20,4 +21,6 @@ public class SnackBitesWebAppContext : IdentityDbContext<SnackBitesWebAppUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+public DbSet<SnackBitesWebApp.Models.Food> Food { get; set; } = default!;
 }
