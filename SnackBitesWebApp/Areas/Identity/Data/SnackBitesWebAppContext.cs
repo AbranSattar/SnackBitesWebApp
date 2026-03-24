@@ -10,6 +10,7 @@ public class SnackBitesWebAppContext : IdentityDbContext<SnackBitesWebAppUser>
     public SnackBitesWebAppContext(DbContextOptions<SnackBitesWebAppContext> options)
         : base(options)
     {
+
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
