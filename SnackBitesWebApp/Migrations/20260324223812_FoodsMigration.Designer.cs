@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SnackBitesWebApp.Areas.Identity.Data;
 
@@ -11,9 +12,11 @@ using SnackBitesWebApp.Areas.Identity.Data;
 namespace SnackBitesWebApp.Migrations
 {
     [DbContext(typeof(SnackBitesWebAppContext))]
-    partial class SnackBitesWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20260324223812_FoodsMigration")]
+    partial class FoodsMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
