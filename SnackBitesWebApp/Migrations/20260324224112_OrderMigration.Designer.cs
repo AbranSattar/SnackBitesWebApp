@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SnackBitesWebApp.Areas.Identity.Data;
 
@@ -11,9 +12,11 @@ using SnackBitesWebApp.Areas.Identity.Data;
 namespace SnackBitesWebApp.Migrations
 {
     [DbContext(typeof(SnackBitesWebAppContext))]
-    partial class SnackBitesWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20260324224112_OrderMigration")]
+    partial class OrderMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -282,32 +285,6 @@ namespace SnackBitesWebApp.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("SnackBitesWebApp.Models.OrderItem", b =>
-                {
-                    b.Property<int>("OrderItemID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderItemID"));
-
-                    b.Property<int>("FoodID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderItemID");
-
-                    b.HasIndex("FoodID");
-
-                    b.HasIndex("OrderID");
-
-                    b.ToTable("OrderItem");
-                });
-
             modelBuilder.Entity("SnackBitesWebApp.Models.Staff", b =>
                 {
                     b.Property<int>("StaffID")
@@ -390,25 +367,6 @@ namespace SnackBitesWebApp.Migrations
                         .IsRequired();
 
                     b.Navigation("Staff");
-                });
-
-            modelBuilder.Entity("SnackBitesWebApp.Models.OrderItem", b =>
-                {
-                    b.HasOne("SnackBitesWebApp.Models.Food", "Food")
-                        .WithMany()
-                        .HasForeignKey("FoodID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SnackBitesWebApp.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Food");
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SnackBitesWebApp.Models.Staff", b =>
