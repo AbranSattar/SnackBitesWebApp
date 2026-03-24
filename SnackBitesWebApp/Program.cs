@@ -34,5 +34,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-//To create first commit for injecting identity. ඞ 
+
 app.Run();
